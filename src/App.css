@@ -2,11 +2,23 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  color: #fff;
+  font-size: 20px;
 }
 
 :root {
-  --bg-color: #81b1ce;
-  --primary: #151269;
+  --shade-1: #00171f;
+  --shade-2: #003459;
+  --shade-3: #3160bccc;
+  --shade-4: #84abf9cc;
+}
+
+input {
+  border: none;
+}
+
+input:focus {
+  outline: none;
 }
 
 ul {
@@ -25,4 +37,13 @@ button {
 
 root .App {
   text-align: center;
+}
+
+.app-container {
+  background-color: var(--shade-1);
+  width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

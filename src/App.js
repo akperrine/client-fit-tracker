@@ -42,7 +42,6 @@ const App = () => {
       snapshot.docs.forEach((doc) => {
         users.push({ ...doc.data(), id: doc.id });
       });
-      console.log(users);
 
       if (users.length === 0) {
         alert("invalid password");
@@ -55,7 +54,7 @@ const App = () => {
   };
 
   return (
-    <div>
+    <div className="app-container">
       {username ? (
         <WeeklyPlan username={username} weeksWorkouts={weeksWorkouts} />
       ) : (

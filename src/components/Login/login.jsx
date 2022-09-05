@@ -1,5 +1,6 @@
 import "./login.css";
 import React from "react";
+import logo from "../../assets/logo.png";
 
 const Login = ({ getUserData }) => {
   const [inputField, setInputField] = React.useState("");
@@ -14,14 +15,18 @@ const Login = ({ getUserData }) => {
   };
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
+    <div className="login-container">
+      <img src={logo} alt="logo" className="login-img" />
+      <form onSubmit={handleSubmit} className="login-form">
+        <label className="login-label">password</label>
+        <br />
         <input
           type="text"
           name="password"
           value={inputField}
           onChange={handleChange}
         />
+        <br />
         <button type="submit">Login</button>
       </form>
     </div>
