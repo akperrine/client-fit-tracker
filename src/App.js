@@ -28,7 +28,8 @@ const db = getFirestore(app);
 const App = () => {
   const [userData, setUserData] = React.useState([]);
   const [username, setUsername] = React.useState("");
-  console.log(username);
+  const [weeksWorkouts, setWeeksWorkouts] = React.useState([]);
+  // console.log(username, weeksWorkouts);
 
   const getUserData = async (stringInput) => {
     const q = query(
@@ -48,12 +49,19 @@ const App = () => {
       } else {
         setUserData(users[0]);
         setUsername(users[0].user);
+        setWeeksWorkouts(users[0].workout);
       }
     });
   };
 
   return (
-    <div>{username ? <WeeklyPlan /> : <Login getUserData={getUserData} />}</div>
+    <div>
+      {username ? (
+        <WeeklyPlan username={username} weeksWorkouts={weeksWorkouts} />
+      ) : (
+        <Login getUserData={getUserData} />
+      )}
+    </div>
   );
 };
 
