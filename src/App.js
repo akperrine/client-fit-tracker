@@ -29,7 +29,6 @@ const App = () => {
   const [userData, setUserData] = React.useState([]);
   const [username, setUsername] = React.useState("");
   const [weeksWorkouts, setWeeksWorkouts] = React.useState([]);
-  // console.log(username, weeksWorkouts);
 
   const getUserData = async (stringInput) => {
     const q = query(
@@ -53,10 +52,20 @@ const App = () => {
     });
   };
 
+  const signOut = (e) => {
+    e.preventDefault();
+    setUsername("");
+    setUserData([]);
+  };
+
   return (
     <div className="app-container">
       {username ? (
-        <WeeklyPlan username={username} weeksWorkouts={weeksWorkouts} />
+        <WeeklyPlan
+          username={username}
+          weeksWorkouts={weeksWorkouts}
+          signOut={signOut}
+        />
       ) : (
         <Login getUserData={getUserData} />
       )}
