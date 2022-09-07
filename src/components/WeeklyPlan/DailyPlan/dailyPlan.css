@@ -1,0 +1,55 @@
+.weekday-container {
+  background-color: var(--shade-2);
+
+  margin: 5px;
+  /* padding: 5px; */
+  border-radius: 5px;
+  border: 1px solid var(--shade-3);
+  width: 190px;
+  max-width: 190px;
+  min-height: 450px;
+  display: flex;
+  flex-direction: column;
+}
+
+.weekday-container > h6 {
+  font-size: 26px;
+  padding: 5px;
+  background-color: var(--shade-4);
+  width: 100%;
+  border-radius: 5px 5px 0 0;
+  border-bottom: 3px solid var(--shade-3);
+  justify-self: center;
+}
+
+.weekday-container > p {
+  font-size: 16px;
+  margin: 8px 5px;
+}
+
+.weekday-container,
+.workout-btn {
+  width: 100%;
+  transition: all 1s;
+}
+
+.weekday-container > button {
+  margin: 5px;
+  transition: 0.7s;
+  height: 30px;
+  border: 1px solid var(--shade-3);
+}
+
+.weekday-container > button:hover {
+  box-shadow: inset 9.3em 0 0 1px var(--shade-3);
+}
+
+/* .workout-btn:hover {
+  box-shadow: inset 6.5em 0 0 1px var(--shade-3);
+} */
+
+@media screen and (max-width: 650px) {
+  .weekday-container {
+    width: 300px;
+  }
+}

@@ -27,7 +27,9 @@ const Login = ({ getUserData }) => {
           onChange={handleChange}
         />
         <br />
-        <button type="submit">Login</button>
+        <button className="btn" type="submit">
+          Login
+        </button>
       </form>
     </div>
   );

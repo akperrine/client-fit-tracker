@@ -1,4 +1,5 @@
 import "./weeklyPlan.css";
+import "../../App.css";
 import logoWord from "../../assets/logo-word.png";
 import DailyPlan from "./DailyPlan/dailyPlan";
 
@@ -13,12 +14,18 @@ const WeeklyPlan = ({ username, weeksWorkouts, signOut }) => {
           </button>
         </nav>
         <h2 className="welcome-header">Welcome {username}</h2>
-        {weeksWorkouts.map((workoutDay) => {
-          const arrayLength = workoutDay.workout.length;
-          return (
-            <DailyPlan arrayLength={arrayLength} workoutDay={workoutDay} />
-          );
-        })}
+        <div className="week-schedule-container">
+          {weeksWorkouts.map((workoutDay, index) => {
+            const arrayLength = workoutDay.workout.length;
+            return (
+              <DailyPlan
+                arrayLength={arrayLength}
+                workoutDay={workoutDay}
+                key={workoutDay.day}
+              />
+            );
+          })}
+        </div>
       </div>
     </div>
   );
