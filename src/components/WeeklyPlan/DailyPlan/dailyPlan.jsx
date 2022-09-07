@@ -1,4 +1,5 @@
 import "./dailyPlan.css";
+import React from "react";
 
 const weekdayArr = [
   "Sunday",
@@ -10,8 +11,14 @@ const weekdayArr = [
   "Saturday",
 ];
 
-const DailyPlan = ({ arrayLength, workoutDay }) => {
+const DailyPlan = ({ arrayLength, workoutDay, updateWorkouts }) => {
+  const [isComplete, setIsComplete] = React.useState(workoutDay.complete);
   const weekday = weekdayArr[workoutDay.day - 1];
+
+  const handleClick = () => {
+    updateWorkouts(workoutDay.day);
+    setIsComplete(workoutDay.complete);
+  };
   return (
     <div className="weekday-container">
       <h6>{`${weekday}`}</h6>
@@ -23,7 +30,14 @@ const DailyPlan = ({ arrayLength, workoutDay }) => {
         <p className="workout-content"></p>
       )}
       {arrayLength > 0 ? (
-        <button className="btn complete-btn">Mark as Complete</button>
+        <button
+          className={
+            workoutDay.complete ? "workout-btn-complete" : "btn workout-btn"
+          }
+          onClick={handleClick}
+        >
+          {workoutDay.complete ? "Completed!!" : "Mark as Complete"}
+        </button>
       ) : null}
     </div>
   );
