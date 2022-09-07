@@ -21,7 +21,7 @@ const WeeklyPlan = ({ username, signOut, userId, weeksWorkouts }) => {
     await updateDoc(docRef, {
       workout: weeksWorkouts,
     })
-      .then(() => alert("update successful"))
+      .then(() => console.log("update successful"))
       .catch((err) => console.log(`unsucessful, error:${err}`));
   };
 
