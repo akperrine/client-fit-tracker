@@ -36,7 +36,7 @@ const DailyPlan = ({ arrayLength, workoutDay, updateWorkouts }) => {
           }
           onClick={handleClick}
         >
-          {workoutDay.complete ? "Completed!!" : "Mark as Complete"}
+          {workoutDay.complete ? "Completed" : "Mark as Complete"}
         </button>
       ) : null}
     </div>

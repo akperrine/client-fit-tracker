@@ -3,30 +3,27 @@ import "../../App.css";
 import logoWord from "../../assets/logo-word.png";
 import DailyPlan from "./DailyPlan/dailyPlan";
 
-// import {doc, updateDoc}
+import { db } from "../../utils/firebase.utils";
+import { updateDoc, doc } from "firebase/firestore";
 
-const WeeklyPlan = ({ username, weeksWorkouts, signOut }) => {
-  const updateWorkouts = (day) => {
+const WeeklyPlan = ({ username, signOut, userId, weeksWorkouts }) => {
+  const updateWorkouts = async (day) => {
     weeksWorkouts.map((workout) => {
       if (workout.day === day) {
-        console.log("should flip", workout.day, workout.complete);
         return { ...workout, ...(workout.complete = !workout.complete) };
       } else {
-        console.log(workout.day, workout.complete);
         return workout;
       }
     });
 
-    //   const docRef = doc(db, "users", strCode);
+    const docRef = doc(db, "users", userId);
 
-    //   await updateDoc(docRef, {
-    //     workout: workoutArr,
-    //   })
-    //     .then(() => alert("update successful"))
-    //     .catch((err) => alert(`unsucessful, error:${err}`));
-    // };
+    await updateDoc(docRef, {
+      workout: weeksWorkouts,
+    })
+      .then(() => alert("update successful"))
+      .catch((err) => console.log(`unsucessful, error:${err}`));
   };
-  console.log(weeksWorkouts);
 
   return (
     <div className="client-container">

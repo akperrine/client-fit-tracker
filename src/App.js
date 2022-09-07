@@ -8,8 +8,11 @@ import { collection, onSnapshot, query, where } from "firebase/firestore";
 
 const App = () => {
   const [userData, setUserData] = React.useState([]);
+  const [userId, setUserId] = React.useState([]);
   const [username, setUsername] = React.useState("");
   const [weeksWorkouts, setWeeksWorkouts] = React.useState([]);
+
+  console.log(userData, userId);
 
   const getUserData = async (stringInput) => {
     const q = query(
@@ -29,6 +32,7 @@ const App = () => {
         setUserData(users[0]);
         setUsername(users[0].user);
         setWeeksWorkouts(users[0].workout);
+        setUserId(users[0].id);
       }
     });
   };
@@ -45,6 +49,7 @@ const App = () => {
         <WeeklyPlan
           username={username}
           weeksWorkouts={weeksWorkouts}
+          userId={userId}
           signOut={signOut}
         />
       ) : (
