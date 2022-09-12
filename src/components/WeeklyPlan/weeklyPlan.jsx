@@ -3,10 +3,10 @@ import "../../App.css";
 import logoWord from "../../assets/logo-word.png";
 import DailyPlan from "./DailyPlan/dailyPlan";
 
-import { db } from "../../utils/firebase.utils";
+import { db, updateDb } from "../../utils/firebase.utils";
 import { updateDoc, doc } from "firebase/firestore";
 
-const WeeklyPlan = ({ username, signOut, userId, weeksWorkouts }) => {
+const WeeklyPlan = ({ userData, username, signOut, userId, weeksWorkouts }) => {
   const updateWorkouts = async (day) => {
     weeksWorkouts.map((workout) => {
       if (workout.day === day) {
@@ -16,13 +16,7 @@ const WeeklyPlan = ({ username, signOut, userId, weeksWorkouts }) => {
       }
     });
 
-    const docRef = doc(db, "users", userId);
-
-    await updateDoc(docRef, {
-      workout: weeksWorkouts,
-    })
-      .then(() => console.log("update successful"))
-      .catch((err) => console.log(`unsucessful, error:${err}`));
+    updateDb("users", userId, "workout", weeksWorkouts);
   };
 
   return (

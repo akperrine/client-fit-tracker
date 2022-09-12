@@ -1,10 +1,12 @@
 import { initializeApp } from "firebase/app";
 
 import {
+  doc,
   collection,
   getFirestore,
   onSnapshot,
   query,
+  updateDoc,
   where,
 } from "firebase/firestore";
 
@@ -20,3 +22,17 @@ const firebaseConfig = {
 
 export const app = initializeApp(firebaseConfig);
 export const db = getFirestore(app);
+
+export const getQuery = async (dbCollection, field, stringInput) => {
+  return query(collection(db, dbCollection), where(field, "==", stringInput));
+};
+
+export const updateDb = async (aCollection, docId, field, data) => {
+  const docRef = doc(db, aCollection, docId);
+
+  await updateDoc(docRef, {
+    [field]: data,
+  })
+    .then(() => console.log("update successful"))
+    .catch((err) => console.log(`unsucessful, error:${err}`));
+};

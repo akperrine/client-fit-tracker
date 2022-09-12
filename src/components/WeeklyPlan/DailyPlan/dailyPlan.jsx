@@ -24,7 +24,7 @@ const DailyPlan = ({ arrayLength, workoutDay, updateWorkouts }) => {
       <h6>{`${weekday}`}</h6>
       {arrayLength > 0 ? (
         workoutDay.workout.map((workout) => (
-          <p className="workout-content">{workout}</p>
+          <p className="workout-content">{workout.excerpt}</p>
         ))
       ) : (
         <p className="workout-content"></p>

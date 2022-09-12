@@ -2,9 +2,8 @@ import "./App.css";
 import React from "react";
 import Login from "./components/Login/login";
 import WeeklyPlan from "./components/WeeklyPlan/weeklyPlan";
-// Firebase
-import { app, db } from "./utils/firebase.utils";
-import { collection, onSnapshot, query, where } from "firebase/firestore";
+import { getQuery, getSnapshot } from "./utils/firebase.utils";
+import { onSnapshot } from "firebase/firestore";
 
 const App = () => {
   const [userData, setUserData] = React.useState([]);
@@ -12,15 +11,10 @@ const App = () => {
   const [username, setUsername] = React.useState("");
   const [weeksWorkouts, setWeeksWorkouts] = React.useState([]);
 
-  console.log(userData, userId);
-
   const getUserData = async (stringInput) => {
-    const q = query(
-      collection(db, "users"),
-      where("password", "==", stringInput)
-    );
+    const q = await getQuery("users", "password", stringInput);
 
-    onSnapshot(q, (snapshot) => {
+    const unsubscribe = onSnapshot(q, (snapshot) => {
       let users = [];
       snapshot.docs.forEach((doc) => {
         users.push({ ...doc.data(), id: doc.id });
@@ -34,6 +28,7 @@ const App = () => {
         setWeeksWorkouts(users[0].workout);
         setUserId(users[0].id);
       }
+      unsubscribe();
     });
   };
 
@@ -47,6 +42,7 @@ const App = () => {
     <div className="app-container">
       {username ? (
         <WeeklyPlan
+          userData={userData}
           username={username}
           weeksWorkouts={weeksWorkouts}
           userId={userId}
