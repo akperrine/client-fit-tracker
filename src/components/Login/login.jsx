@@ -23,6 +23,7 @@ const Login = ({ getUserData }) => {
         <input
           type="text"
           name="password"
+          placeholder="Enter Password"
           value={inputField}
           onChange={handleChange}
         />

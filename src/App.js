@@ -4,8 +4,13 @@ import Login from "./components/Login/login";
 import WeeklyPlan from "./components/WeeklyPlan/weeklyPlan";
 import { getQuery, getSnapshot } from "./utils/firebase.utils";
 import { onSnapshot } from "firebase/firestore";
+import { useSelector, useDispatch } from "react-redux";
+import { login } from "./redux/features/user/userSlice";
 
 const App = () => {
+  const user = useSelector((state) => state.user.value);
+  const dispatch = useDispatch();
+  // delete below when redux integrated?
   const [userData, setUserData] = React.useState([]);
   const [userId, setUserId] = React.useState([]);
   const [username, setUsername] = React.useState("");
@@ -23,6 +28,9 @@ const App = () => {
       if (users.length === 0) {
         alert("invalid password");
       } else {
+        console.log(users[0]);
+        dispatch(login(users[0]));
+        // delete below when redux integrated
         setUserData(users[0]);
         setUsername(users[0].user);
         setWeeksWorkouts(users[0].workout);
@@ -32,21 +40,14 @@ const App = () => {
     });
   };
 
-  const signOut = (e) => {
-    e.preventDefault();
-    setUsername("");
-    setUserData([]);
-  };
-
   return (
     <div className="app-container">
-      {username ? (
+      {user ? (
         <WeeklyPlan
           userData={userData}
           username={username}
           weeksWorkouts={weeksWorkouts}
           userId={userId}
-          signOut={signOut}
         />
       ) : (
         <Login getUserData={getUserData} />

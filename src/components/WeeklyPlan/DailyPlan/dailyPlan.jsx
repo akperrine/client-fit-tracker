@@ -1,5 +1,6 @@
 import "./dailyPlan.css";
 import React from "react";
+// import { useDispatch } from "react-redux";
 
 const weekdayArr = [
   "Sunday",
@@ -12,12 +13,10 @@ const weekdayArr = [
 ];
 
 const DailyPlan = ({ arrayLength, workoutDay, updateWorkouts }) => {
-  const [isComplete, setIsComplete] = React.useState(workoutDay.complete);
   const weekday = weekdayArr[workoutDay.day - 1];
 
   const handleClick = () => {
     updateWorkouts(workoutDay.day);
-    setIsComplete(workoutDay.complete);
   };
   return (
     <div className="weekday-container">
