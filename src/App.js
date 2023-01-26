@@ -1,11 +1,12 @@
 import "./App.css";
 import React from "react";
 import Login from "./components/Login/login";
-import WeeklyPlan from "./components/WeeklyPlan/weeklyPlan";
 import { getQuery, getSnapshot } from "./utils/firebase.utils";
 import { onSnapshot } from "firebase/firestore";
 import { useSelector, useDispatch } from "react-redux";
 import { login } from "./redux/features/user/userSlice";
+import Home from "./routes/home/home";
+import { Routes, Route } from "react-router-dom";
 
 const App = () => {
   const user = useSelector((state) => state.user.value);
@@ -32,7 +33,13 @@ const App = () => {
 
   return (
     <div className="app-container">
-      {user ? <WeeklyPlan /> : <Login getUserData={getUserData} />}
+      {user ? (
+        <Routes>
+          <Route path="/" element={<Home />} />
+        </Routes>
+      ) : (
+        <Login getUserData={getUserData} />
+      )}
     </div>
   );
 };
