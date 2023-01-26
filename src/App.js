@@ -10,11 +10,6 @@ import { login } from "./redux/features/user/userSlice";
 const App = () => {
   const user = useSelector((state) => state.user.value);
   const dispatch = useDispatch();
-  // delete below when redux integrated?
-  const [userData, setUserData] = React.useState([]);
-  const [userId, setUserId] = React.useState([]);
-  const [username, setUsername] = React.useState("");
-  const [weeksWorkouts, setWeeksWorkouts] = React.useState([]);
 
   const getUserData = async (stringInput) => {
     const q = await getQuery("users", "password", stringInput);
@@ -30,11 +25,6 @@ const App = () => {
       } else {
         console.log(users[0]);
         dispatch(login(users[0]));
-        // delete below when redux integrated
-        setUserData(users[0]);
-        setUsername(users[0].user);
-        setWeeksWorkouts(users[0].workout);
-        setUserId(users[0].id);
       }
       unsubscribe();
     });
@@ -42,16 +32,7 @@ const App = () => {
 
   return (
     <div className="app-container">
-      {user ? (
-        <WeeklyPlan
-          userData={userData}
-          username={username}
-          weeksWorkouts={weeksWorkouts}
-          userId={userId}
-        />
-      ) : (
-        <Login getUserData={getUserData} />
-      )}
+      {user ? <WeeklyPlan /> : <Login getUserData={getUserData} />}
     </div>
   );
 };
