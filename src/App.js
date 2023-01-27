@@ -6,6 +6,7 @@ import { onSnapshot } from "firebase/firestore";
 import { useSelector, useDispatch } from "react-redux";
 import { login } from "./redux/features/user/userSlice";
 import Home from "./routes/home/home";
+import Navigation from "./routes/navigation/navigation";
 import { Routes, Route } from "react-router-dom";
 
 const App = () => {
@@ -32,15 +33,17 @@ const App = () => {
   };
 
   return (
-    <div className="app-container">
+    <>
       {user ? (
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Navigation />}>
+            <Route index element={<Home />} />
+          </Route>
         </Routes>
       ) : (
         <Login getUserData={getUserData} />
       )}
-    </div>
+    </>
   );
 };
 

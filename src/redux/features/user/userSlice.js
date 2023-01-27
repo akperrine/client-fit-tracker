@@ -13,7 +13,6 @@ export const userSlice = createSlice({
       state.value = null;
     },
     update: (state, action) => {
-      console.log("dispatched");
       const index = state.value.workout.findIndex(
         (workout) => workout.day === action.payload
       );
