@@ -23,6 +23,8 @@
   border-radius: 5px;
   color: black;
   transition: all 0.3s;
+  padding: 5px;
+  margin-top: 2px;
 }
 
 .login-form > input:focus {
