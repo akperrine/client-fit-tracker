@@ -1,6 +1,6 @@
 .dropdown-container {
   position: absolute;
-  top: 65px;
+  top: 55px;
   right: 100px;
   background-color: var(--shade-2);
   width: 175px;
@@ -10,6 +10,8 @@
   border-radius: 5px;
   border: 1px solid var(--shade-3);
   padding: 10px;
+  border: 2px solid var(--shade-3);
+  box-shadow: 3px 3px 12px black;
 }
 
 .menu-btn {

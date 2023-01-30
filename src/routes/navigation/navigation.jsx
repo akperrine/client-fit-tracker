@@ -30,7 +30,9 @@ const Navigation = () => {
           <button className="dropdown-btn btn" onClick={handleDropdownClick}>
             <IoIosArrowDown />
           </button>
-          {dropdown && <NavDropdown />}
+          {dropdown && (
+            <NavDropdown dropdown={dropdown} setDropdown={setDropdown} />
+          )}
 
           <button className="logout-btn btn" onClick={handleSignout}>
             Log Out
