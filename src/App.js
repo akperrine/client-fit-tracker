@@ -8,6 +8,7 @@ import { login } from "./redux/features/user/userSlice";
 import Home from "./routes/home/home";
 import Navigation from "./routes/navigation/navigation";
 import { Routes, Route } from "react-router-dom";
+import WeeklyPlan from "./components/WeeklyPlan/weeklyPlan";
 
 const App = () => {
   const user = useSelector((state) => state.user.value);
@@ -38,6 +39,7 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Navigation />}>
             <Route index element={<Home />} />
+            <Route path="/week" element={<WeeklyPlan />} />
           </Route>
         </Routes>
       ) : (

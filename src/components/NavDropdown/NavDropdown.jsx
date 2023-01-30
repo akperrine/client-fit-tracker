@@ -1,9 +1,12 @@
+import { NavLink } from "react-router-dom";
 import "./NavDropdown.css";
 
 const NavDropdown = () => {
   return (
     <div className="dropdown-container">
-      <button className="menu-btn">Today</button>
+      <NavLink to="/week">
+        <button className="menu-btn">Week View</button>
+      </NavLink>
     </div>
   );
 };
