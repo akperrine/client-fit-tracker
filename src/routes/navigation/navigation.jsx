@@ -1,11 +1,11 @@
-import "./navigation.css";
+import NavDropdown from "../../components/NavDropdown/NavDropdown";
 import { useDispatch } from "react-redux";
 import logoWord from "../../assets/logo-word.png";
 import { logout } from "../../redux/features/user/userSlice";
 import { NavLink, Outlet } from "react-router-dom";
 import { Fragment } from "react";
-import { IoIosArrowDown, IoIosArrowDropdown } from "react-icons/io";
-import { BsCaretDownFill } from "react-icons/bs";
+import { IoIosArrowDown } from "react-icons/io";
+import "./navigation.css";
 
 const Navigation = () => {
   const dispatch = useDispatch();
@@ -24,6 +24,7 @@ const Navigation = () => {
           <button className="dropdown-btn btn">
             <IoIosArrowDown />
           </button>
+          <NavDropdown />
           <button className="logout-btn btn" onClick={handleSignout}>
             Log Out
           </button>
