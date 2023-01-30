@@ -11,3 +11,24 @@
   border: 1px solid var(--shade-3);
   padding: 10px;
 }
+
+.menu-btn {
+  margin: 5px;
+  transition: 0.7s;
+  height: 30px;
+  border: 1px solid var(--shade-3);
+  align-self: center;
+  width: 90%;
+  transition: all 0.5s;
+  background-color: var(--shade-3-opaque);
+  border-radius: 5px;
+  border: 1px solid var(--shade-4);
+}
+
+.menu-btn:hover {
+  background-color: var(--shade-4);
+}
+
+.menu-btn:active {
+  transform: translateY(2px);
+}
