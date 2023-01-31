@@ -20,11 +20,6 @@ const WeeklyPlan = () => {
     updateDb("users", userId, "workout", weeksWorkouts);
   }, [user]);
 
-  // const handleSignout = (event) => {
-  //   event.preventDefault();
-  //   dispatch(logout());
-  // };
-
   const updateWorkouts = (day) => {
     weeksWorkouts.map((workout) => {
       if (workout.day === day) {
@@ -37,7 +32,7 @@ const WeeklyPlan = () => {
     <div className="app-container">
       <div className="client-container">
         <div className="workout-week">
-          <h2 className="welcome-header">Welcome {username}</h2>
+          <h2 className="week-header">Workouts For This Week</h2>
           <div className="week-schedule-container">
             {weeksWorkouts.map((workoutDay, index) => {
               const arrayLength = workoutDay.workout.length;

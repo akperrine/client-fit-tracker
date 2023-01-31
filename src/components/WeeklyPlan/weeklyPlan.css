@@ -21,7 +21,7 @@
   margin-bottom: 35px;
 }
 
-.welcome-header {
+.week-header {
   font-size: 40px;
   padding: 20px;
   background-color: transparent;
@@ -33,7 +33,7 @@
 }
 
 @media screen and (max-width: 600px) {
-  .welcome-header {
+  .week-header {
     font-size: 25px;
     margin: 30px 0px 20px 0px;
   }
