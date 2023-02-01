@@ -63,19 +63,3 @@ root .App {
   transition: 0.2s;
   transform: translateY(1px);
 }
-
-.workout-btn-complete {
-  border-radius: 5px;
-  margin: 5px;
-  transition: 0.7s;
-  height: 30px;
-  border: 1px solid rgb(31, 141, 9);
-  background: rgb(56, 173, 32);
-  align-self: center;
-  width: 90%;
-}
-
-.workout-btn-complete:active {
-  transition: 0.2s;
-  transform: translateY(1px);
-}

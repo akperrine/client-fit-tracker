@@ -1,6 +1,7 @@
 .nav {
   background: var(--shade-4);
   width: 100vw;
+  height: 7.5vh;
   display: flex;
   align-items: center;
   justify-content: space-between;

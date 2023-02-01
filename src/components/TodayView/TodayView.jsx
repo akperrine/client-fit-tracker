@@ -60,7 +60,7 @@ const TodayView = () => {
               <button
                 className={
                   currentDay.complete
-                    ? "workout-btn-complete"
+                    ? "day-workout-btn-complete"
                     : "btn day-workout-btn"
                 }
                 onClick={handleClick}
