@@ -9,6 +9,32 @@
   max-width: 600px;
 }
 
+.day-plan-container {
+  background-color: var(--shade-2);
+  margin: 5px;
+  border-radius: 5px;
+  border: 1px solid var(--shade-3);
+  width: 495px;
+  min-height: 450px;
+  display: flex;
+  flex-direction: column;
+}
+
+.day-plan-container > h6 {
+  font-size: 26px;
+  padding: 5px;
+  background-color: var(--shade-4);
+  width: 100%;
+  border-radius: 5px 5px 0 0;
+  border-bottom: 3px solid var(--shade-3);
+  justify-self: center;
+}
+
+.day-plan-container > p {
+  font-size: 16px;
+  margin: 8px 5px;
+}
+
 @media screen and (max-width: 600px) {
   .welcome-header {
     font-size: 25px;
@@ -22,7 +48,7 @@
   height: 30px;
   border: 1px solid var(--shade-3);
   align-self: center;
-  width: 90%;
+  width: 70%;
   transition: all 0.5s;
 }
 
