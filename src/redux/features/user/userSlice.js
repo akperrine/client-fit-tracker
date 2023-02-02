@@ -12,7 +12,7 @@ export const userSlice = createSlice({
     logout: (state) => {
       state.value = null;
     },
-    update: (state, action) => {
+    updateWorkout: (state, action) => {
       const index = state.value.workout.findIndex(
         (workout) => workout.day === action.payload
       );
@@ -23,6 +23,6 @@ export const userSlice = createSlice({
   },
 });
 
-export const { login, logout, update } = userSlice.actions;
+export const { login, logout, updateWorkout } = userSlice.actions;
 
 export default userSlice.reducer;

@@ -7,7 +7,7 @@ import { db, updateDb } from "../../utils/firebase.utils";
 import { updateDoc, doc } from "firebase/firestore";
 
 import { useSelector, useDispatch } from "react-redux";
-import { update } from "../../redux/features/user/userSlice";
+import { updateWorkout } from "../../redux/features/user/userSlice";
 
 const WeeklyPlan = () => {
   const dispatch = useDispatch();
@@ -23,7 +23,7 @@ const WeeklyPlan = () => {
   const updateWorkouts = (day) => {
     weeksWorkouts.map((workout) => {
       if (workout.day === day) {
-        dispatch(update(workout.day));
+        dispatch(updateWorkout(workout.day));
       }
     });
   };

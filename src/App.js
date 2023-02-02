@@ -36,7 +36,7 @@ const App = () => {
 
   //calling the useEffect only meant to speed the process up for now. Delete after finished
   React.useEffect(() => {
-    getUserData("123123");
+    getUserData("1212");
   }, []);
 
   return (
