@@ -15,7 +15,7 @@
 }
 
 .menu-btn {
-  margin: 5px;
+  margin: 25px 5px;
   transition: 0.7s;
   height: 30px;
   border: 1px solid var(--shade-3);
