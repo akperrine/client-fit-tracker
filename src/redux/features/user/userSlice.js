@@ -20,9 +20,16 @@ export const userSlice = createSlice({
       newWeeksWorkouts[index].complete = !newWeeksWorkouts[index].complete;
       state.value = { ...state.value, workout: newWeeksWorkouts };
     },
+    addMessages: (state, action) => {
+      state.value = {
+        ...state.value,
+        messages: [...state.value.messages, action.payload],
+      };
+      console.log(state.value);
+    },
   },
 });
 
-export const { login, logout, updateWorkout } = userSlice.actions;
+export const { addMessages, login, logout, updateWorkout } = userSlice.actions;
 
 export default userSlice.reducer;
