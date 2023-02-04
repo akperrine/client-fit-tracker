@@ -34,18 +34,13 @@ const App = () => {
     });
   };
 
-  //calling the useEffect only meant to speed the process up for now. Delete after finished
-  React.useEffect(() => {
-    getUserData("1212");
-  }, []);
-
   return (
     <>
       {user ? (
         <Routes>
           <Route path="/" element={<Navigation />}>
-            {/* <Route index element={<TodayView />} /> */}
-            <Route index element={<Chat />} />
+            <Route index element={<TodayView />} />
+            <Route path="/chat" element={<Chat />} />
             <Route path="/week" element={<WeeklyPlan />} />
           </Route>
         </Routes>
