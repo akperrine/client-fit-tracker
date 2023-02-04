@@ -22,8 +22,10 @@ const TodayView = () => {
   const userId = user.id;
   const dateIndex = new Date().getDay();
   const getCurrentDay = () => {
-    for (let i = 0; i < 6; i++) {
+    for (let i = 0; i < 7; i++) {
+      console.log(dateIndex, i);
       if (i === dateIndex) {
+        console.log("log");
         return weeksWorkouts[i];
       }
     }

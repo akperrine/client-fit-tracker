@@ -16,6 +16,7 @@ const App = () => {
   const dispatch = useDispatch();
 
   const getUserData = async (stringInput) => {
+    console.log(stringInput);
     const q = await getQuery("users", "password", stringInput);
 
     const unsubscribe = onSnapshot(q, (snapshot) => {
@@ -27,7 +28,6 @@ const App = () => {
       if (users.length === 0) {
         alert("invalid password");
       } else {
-        console.log(users[0]);
         dispatch(login(users[0]));
       }
       unsubscribe();
