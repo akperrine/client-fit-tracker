@@ -25,7 +25,6 @@ export const userSlice = createSlice({
         ...state.value,
         messages: [...state.value.messages, action.payload],
       };
-      console.log(state.value);
     },
   },
 });
