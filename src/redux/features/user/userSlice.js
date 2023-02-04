@@ -12,7 +12,7 @@ export const userSlice = createSlice({
     logout: (state) => {
       state.value = null;
     },
-    update: (state, action) => {
+    updateWorkout: (state, action) => {
       const index = state.value.workout.findIndex(
         (workout) => workout.day === action.payload
       );
@@ -20,9 +20,15 @@ export const userSlice = createSlice({
       newWeeksWorkouts[index].complete = !newWeeksWorkouts[index].complete;
       state.value = { ...state.value, workout: newWeeksWorkouts };
     },
+    addMessages: (state, action) => {
+      state.value = {
+        ...state.value,
+        messages: [...state.value.messages, action.payload],
+      };
+    },
   },
 });
 
-export const { login, logout, update } = userSlice.actions;
+export const { addMessages, login, logout, updateWorkout } = userSlice.actions;
 
 export default userSlice.reducer;

@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { update } from "../../redux/features/user/userSlice";
+import { updateWorkout } from "../../redux/features/user/userSlice";
 import { updateDb } from "../../utils/firebase.utils";
 import "./TodayView.css";
 
@@ -36,7 +36,7 @@ const TodayView = () => {
   }, [user]);
 
   const updateWorkouts = () => {
-    dispatch(update(currentDay.day));
+    dispatch(updateWorkout(currentDay.day));
   };
 
   const handleClick = (event) => {

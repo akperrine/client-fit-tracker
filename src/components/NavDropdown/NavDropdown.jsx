@@ -13,6 +13,11 @@ const NavDropdown = ({ dropdown, setDropdown }) => {
           Week View
         </button>
       </NavLink>
+      <NavLink to="/chat">
+        <button className="menu-btn" onClick={handleClick}>
+          Chat
+        </button>
+      </NavLink>
     </div>
   );
 };

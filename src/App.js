@@ -5,10 +5,11 @@ import { getQuery, getSnapshot } from "./utils/firebase.utils";
 import { onSnapshot } from "firebase/firestore";
 import { useSelector, useDispatch } from "react-redux";
 import { login } from "./redux/features/user/userSlice";
-import Home from "./routes/home/home";
 import Navigation from "./routes/navigation/navigation";
 import { Routes, Route } from "react-router-dom";
 import WeeklyPlan from "./components/WeeklyPlan/weeklyPlan";
+import TodayView from "./components/TodayView/TodayView";
+import Chat from "./components/Chat/Chat";
 
 const App = () => {
   const user = useSelector((state) => state.user.value);
@@ -38,7 +39,8 @@ const App = () => {
       {user ? (
         <Routes>
           <Route path="/" element={<Navigation />}>
-            <Route index element={<Home />} />
+            <Route index element={<TodayView />} />
+            <Route path="/chat" element={<Chat />} />
             <Route path="/week" element={<WeeklyPlan />} />
           </Route>
         </Routes>
