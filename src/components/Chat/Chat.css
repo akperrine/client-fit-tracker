@@ -1,3 +1,45 @@
 .chat-container {
-  background: var(--shade-3-opaque);
+  background: var(--shade-2);
+  border: 1px solid var(--shade-4);
+  width: 50%;
+  height: 85vh;
+  border-radius: 5px;
+  overflow-y: scroll;
+}
+
+.chat-box {
+  height: 90%;
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.chat-input-container {
+  background-color: var(--shade-2);
+  width: 100%;
+  height: 5%;
+  border-top: 3px solid var(--shade-4);
+  display: flex;
+  flex-direction: column;
+  align-self: flex-start;
+}
+
+.chat-input-container > form {
+  display: flex;
+  height: 100%;
+  width: 100%;
+}
+
+.chat-input-container > form > textarea {
+  border: none;
+  width: 100%;
+  height: 100%;
+  background: var(--shade-2);
+}
+
+.chat-input-container > form > button {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  margin: 10px 1px;
+  width: 10%;
 }

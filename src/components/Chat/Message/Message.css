@@ -1,0 +1,33 @@
+.user-message-container {
+  align-self: flex-end;
+  width: 70%;
+  padding: 10px;
+  border-radius: 15px 15px 0px 15px;
+  margin: 8px;
+  background-color: var(--shade-3);
+}
+
+.foreign-message-container {
+  align-self: flex-start;
+  width: 70%;
+  padding: 10px;
+  border-radius: 0px 15px 15px 15px;
+  margin: 8px;
+  background-color: rgb(114, 114, 115);
+}
+
+.user-message-container > h6 {
+  margin-bottom: 5px;
+  color: var(--shade-4);
+}
+
+.foreign-message-container > h6 {
+  margin-bottom: 5px;
+  color: rgb(45, 45, 45);
+}
+
+.message-time-stamp {
+  opacity: 0.5;
+  font-size: 15px;
+  margin-top: 2px;
+}

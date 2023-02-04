@@ -1,6 +1,8 @@
 import "./Message.css";
 
-const Message = ({ message }) => {
+const Message = ({ message, messageClassName }) => {
+  console.log(messageClassName);
+
   const timestampToDate = (timestamp) => {
     const date = new Date(timestamp * 1000);
     const months = [
@@ -27,10 +29,10 @@ const Message = ({ message }) => {
   const standardDate = timestampToDate(message.timestamp);
 
   return (
-    <div>
-      <p>{message.message}</p>
+    <div className={messageClassName}>
       <h6>{message.username}</h6>
-      <div>{standardDate}</div>
+      <p>{message.message}</p>
+      <div className="message-time-stamp">{standardDate}</div>
     </div>
   );
 };

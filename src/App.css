@@ -36,6 +36,10 @@ button {
   outline: inherit;
 }
 
+textarea {
+  font-family: inherit;
+}
+
 root .App {
   text-align: center;
 }
