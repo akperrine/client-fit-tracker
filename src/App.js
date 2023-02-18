@@ -4,7 +4,7 @@ import Login from "./components/Login/login";
 import { getQuery } from "./utils/firebase.utils";
 import { onSnapshot } from "firebase/firestore";
 import { useSelector, useDispatch } from "react-redux";
-import { login } from "./redux/features/auth/authSlice";
+import { login } from "./redux/features/user/userSlice";
 import Navigation from "./routes/navigation/navigation";
 import { Routes, Route } from "react-router-dom";
 import WeeklyPlan from "./components/WeeklyPlan/weeklyPlan";
@@ -13,6 +13,7 @@ import Chat from "./components/Chat/Chat";
 
 const App = () => {
   const user = useSelector((state) => state.user.value);
+
   const dispatch = useDispatch();
 
   const getUserData = async (stringInput) => {
