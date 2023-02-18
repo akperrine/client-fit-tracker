@@ -1,4 +1,4 @@
-import React from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { updateWorkout } from "../../redux/features/user/userSlice";
 import { updateDb } from "../../utils/firebase.utils";
@@ -17,10 +17,15 @@ const weekdayArr = [
 const TodayView = () => {
   const dispatch = useDispatch();
   const user = useSelector((state) => state.user.value);
+  const [daysComplete, setDaysComplete] = useState(0);
+  const [daysProgrammed, setDaysProgrammed] = useState(0);
+  const [percentComplete, setPercentComplete] = useState(0);
+
   const username = user.user;
   const weeksWorkouts = user.workout;
   const userId = user.id;
   const dateIndex = new Date().getDay();
+
   const getCurrentDay = () => {
     for (let i = 0; i < 7; i++) {
       if (i === dateIndex) {
@@ -28,11 +33,33 @@ const TodayView = () => {
       }
     }
   };
+
+  console.log(weeksWorkouts);
+  const calcPercentComplete = () => {
+    let counterComplete = 0;
+    let counterDaysProgrammed = 0;
+    for (let i = 0; i < 7; i++) {
+      if (weeksWorkouts[i].workout.length) {
+        counterDaysProgrammed++;
+        if (weeksWorkouts[i].complete) {
+          counterComplete++;
+        }
+      }
+    }
+    setDaysComplete(counterComplete);
+    setDaysProgrammed(counterDaysProgrammed);
+    const rounded = Math.round((counterComplete / counterDaysProgrammed) * 100);
+    setPercentComplete(rounded);
+  };
+
+  useEffect(() => {
+    calcPercentComplete();
+  }, [daysComplete]);
+
   const currentDay = getCurrentDay();
   const weekday = weekdayArr[currentDay.day - 1];
-  console.log(currentDay.workout.length === 0);
 
-  React.useEffect(() => {
+  useEffect(() => {
     updateDb("users", userId, "workout", weeksWorkouts);
   }, [user]);
 
@@ -73,6 +100,21 @@ const TodayView = () => {
                 {currentDay.complete ? "Completed" : "Mark as Complete"}
               </button>
             ) : null}
+          </div>
+          <div className="completion-container">
+            <h6>This Week's Progress</h6>
+            <div className="completion-bar-empty">
+              <div
+                className="completion-bar-full"
+                style={{
+                  width: `${percentComplete}%`,
+                  backgroundColor: `${percentComplete < 60}`
+                    ? "rgb(235, 206, 23)"
+                    : "rgb(56, 173, 32)",
+                }}
+              ></div>
+              <span className="completion-percent">{percentComplete}%</span>
+            </div>
           </div>
         </div>
       </div>

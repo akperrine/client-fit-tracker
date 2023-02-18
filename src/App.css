@@ -5,6 +5,7 @@
   --shade-3-opaque: #315fbc;
   --shade-4: #84abf9cc;
   --logo: #f7f7fd;
+  --complete: rgb(56, 173, 32);
 }
 * {
   box-sizing: border-box;

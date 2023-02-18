@@ -12,7 +12,7 @@
 
 .day-plan-container {
   background-color: var(--shade-2);
-  margin: 5px 0 150px 0;
+  margin: 5px 0 70px 0;
   border-radius: 5px;
   border: 1px solid var(--shade-3);
   width: 500px;
@@ -29,7 +29,6 @@
   width: 100%;
   border-radius: 5px 5px 0 0;
   border-bottom: 3px solid var(--shade-3);
-  /* justify-self: center; */
 }
 
 .day-plan-container > ul,
@@ -100,4 +99,48 @@ li {
     font-size: 20px;
     width: 90%;
   }
+}
+
+.completion-container {
+  background-color: black;
+  margin-bottom: 140px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.completion-container > h6 {
+  font-size: 30px;
+  margin: 5px;
+}
+
+.completion-bar-empty {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background-color: var(--shade-4);
+  width: 90%;
+  height: 30px;
+  font-size: 25px;
+  margin: 10px;
+  /* padding: 3px; */
+  border-radius: 5px;
+  outline: 2px solid var(--shade-3);
+}
+
+.completion-bar-full {
+  /* background-color: var(--complete); */
+  width: 10%;
+  height: 30px;
+  border-radius: 5px;
+  z-index: 5;
+}
+
+.completion-percent {
+  position: absolute;
+  z-index: 10;
+  right: 5%;
+  font-size: 25px;
+  opacity: 0.9;
 }
