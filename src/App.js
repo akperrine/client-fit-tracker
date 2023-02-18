@@ -1,10 +1,10 @@
 import "./App.css";
 import React from "react";
 import Login from "./components/Login/login";
-import { getQuery, getSnapshot } from "./utils/firebase.utils";
+import { getQuery } from "./utils/firebase.utils";
 import { onSnapshot } from "firebase/firestore";
 import { useSelector, useDispatch } from "react-redux";
-import { login } from "./redux/features/user/userSlice";
+import { login } from "./redux/features/auth/authSlice";
 import Navigation from "./routes/navigation/navigation";
 import { Routes, Route } from "react-router-dom";
 import WeeklyPlan from "./components/WeeklyPlan/weeklyPlan";
@@ -16,7 +16,6 @@ const App = () => {
   const dispatch = useDispatch();
 
   const getUserData = async (stringInput) => {
-    console.log(stringInput);
     const q = await getQuery("users", "password", stringInput);
 
     const unsubscribe = onSnapshot(q, (snapshot) => {

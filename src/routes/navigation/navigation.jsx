@@ -1,9 +1,9 @@
 import NavDropdown from "../../components/NavDropdown/NavDropdown";
 import { useDispatch } from "react-redux";
 import logoWord from "../../assets/logo-word.png";
-import { logout } from "../../redux/features/user/userSlice";
+import { logout } from "../../redux/features/auth/authSlice";
 import { NavLink, Outlet } from "react-router-dom";
-import React, { Fragment } from "react";
+import React from "react";
 import { IoIosArrowDown } from "react-icons/io";
 import "./navigation.css";
 
