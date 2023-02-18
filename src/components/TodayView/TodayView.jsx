@@ -23,15 +23,14 @@ const TodayView = () => {
   const dateIndex = new Date().getDay();
   const getCurrentDay = () => {
     for (let i = 0; i < 7; i++) {
-      console.log(dateIndex, i);
       if (i === dateIndex) {
-        console.log("log");
         return weeksWorkouts[i];
       }
     }
   };
   const currentDay = getCurrentDay();
   const weekday = weekdayArr[currentDay.day - 1];
+  console.log(currentDay.workout.length === 0);
 
   React.useEffect(() => {
     updateDb("users", userId, "workout", weeksWorkouts);
@@ -53,11 +52,15 @@ const TodayView = () => {
         <div>
           <div className="day-plan-container">
             <h6>Workout For {weekday}</h6>
-            <ul>
-              {currentDay.workout.map((item) => (
-                <li>{item["excerpt"]}</li>
-              ))}
-            </ul>
+            {currentDay.workout.length === 0 ? (
+              <div className="no-workout">No Workout Programmed</div>
+            ) : (
+              <ul>
+                {currentDay.workout.map((item) => (
+                  <li>{item["excerpt"]}</li>
+                ))}
+              </ul>
+            )}
             {currentDay.workout.length > 0 ? (
               <button
                 className={

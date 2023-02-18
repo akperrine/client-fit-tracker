@@ -32,6 +32,7 @@ const Login = ({ getUserData }) => {
           <button className="btn" type="submit">
             Login
           </button>
+          <div className="temp-hint">*pwd:123123</div>
         </form>
       </div>
     </div>

@@ -45,3 +45,8 @@
 .login-form > button:hover {
   box-shadow: inset 6.5em 0 0 1px var(--shade-4);
 }
+
+.temp-hint {
+  color: red;
+  opacity: 0.5;
+}

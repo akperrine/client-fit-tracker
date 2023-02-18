@@ -39,6 +39,12 @@ li {
   margin: 8px 5px;
 }
 
+.no-workout {
+  align-self: center;
+  font-size: 30px;
+  margin-bottom: 200px;
+}
+
 .day-workout-btn {
   margin: 5px;
   transition: 0.7s;
