@@ -28,7 +28,7 @@ const DailyPlan = ({ arrayLength, workoutDay, updateWorkouts }) => {
           </p>
         ))
       ) : (
-        <p className="workout-content"></p>
+        <p className="workout-content">No Workout Today</p>
       )}
       {arrayLength > 0 ? (
         <button
