@@ -34,7 +34,6 @@ const TodayView = () => {
     }
   };
 
-  console.log(weeksWorkouts);
   const calcPercentComplete = () => {
     let counterComplete = 0;
     let counterDaysProgrammed = 0;
@@ -52,16 +51,13 @@ const TodayView = () => {
     setPercentComplete(rounded);
   };
 
-  useEffect(() => {
-    calcPercentComplete();
-  }, [daysComplete]);
-
   const currentDay = getCurrentDay();
   const weekday = weekdayArr[currentDay.day - 1];
 
   useEffect(() => {
     updateDb("users", userId, "workout", weeksWorkouts);
-  }, [user]);
+    calcPercentComplete();
+  }, [user, daysComplete]);
 
   const updateWorkouts = () => {
     dispatch(updateWorkout(currentDay.day));
@@ -108,9 +104,11 @@ const TodayView = () => {
                 className="completion-bar-full"
                 style={{
                   width: `${percentComplete}%`,
-                  backgroundColor: `${percentComplete < 60}`
-                    ? "rgb(235, 206, 23)"
-                    : "rgb(56, 173, 32)",
+                  backgroundColor: `${
+                    percentComplete <= 60
+                      ? "rgb(235, 206, 23)"
+                      : "rgb(56, 173, 32)"
+                  }`,
                 }}
               ></div>
               <span className="completion-percent">{percentComplete}%</span>

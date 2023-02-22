@@ -102,7 +102,6 @@ li {
 }
 
 .completion-container {
-  background-color: black;
   margin-bottom: 140px;
   display: flex;
   flex-direction: column;
@@ -135,6 +134,7 @@ li {
   height: 30px;
   border-radius: 5px;
   z-index: 5;
+  transition: 0.7s;
 }
 
 .completion-percent {
