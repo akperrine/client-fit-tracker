@@ -8,12 +8,17 @@ const NavDropdown = ({ dropdown, setDropdown }) => {
 
   return (
     <div className="dropdown-container">
-      <NavLink to="/week">
+      <NavLink className="nav-link" to="/week">
         <button className="menu-btn" onClick={handleClick}>
           Week View
         </button>
       </NavLink>
-      <NavLink to="/chat">
+      <NavLink className="nav-link" to="/goals">
+        <button className="menu-btn" onClick={handleClick}>
+          Goals
+        </button>
+      </NavLink>
+      <NavLink className="nav-link" to="/chat">
         <button className="menu-btn" onClick={handleClick}>
           Chat
         </button>

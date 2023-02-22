@@ -10,6 +10,7 @@ import { Routes, Route } from "react-router-dom";
 import WeeklyPlan from "./components/WeeklyPlan/weeklyPlan";
 import TodayView from "./components/TodayView/TodayView";
 import Chat from "./components/Chat/Chat";
+import { Goals } from "./components/Goals/Goals";
 
 const App = () => {
   const user = useSelector((state) => state.user.value);
@@ -41,6 +42,7 @@ const App = () => {
           <Route path="/" element={<Navigation />}>
             <Route index element={<TodayView />} />
             <Route path="/chat" element={<Chat />} />
+            <Route path="/goals" element={<Goals />} />
             <Route path="/week" element={<WeeklyPlan />} />
           </Route>
         </Routes>

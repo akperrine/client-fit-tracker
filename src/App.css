@@ -45,6 +45,10 @@ root .App {
   text-align: center;
 }
 
+.nav-link {
+  text-decoration: none;
+}
+
 .app-container {
   background-color: var(--shade-1);
   width: 100vw;

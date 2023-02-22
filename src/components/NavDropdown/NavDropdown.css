@@ -1,5 +1,9 @@
 .dropdown-container {
   position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
   top: 55px;
   right: 100px;
   background-color: var(--shade-2);
@@ -14,13 +18,22 @@
   box-shadow: 3px 3px 12px black;
 }
 
+.nav-link {
+  text-decoration: none;
+}
+
 .menu-btn {
-  margin: 25px 5px;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   transition: 0.7s;
   height: 30px;
+
   border: 1px solid var(--shade-3);
   align-self: center;
-  width: 90%;
+  width: 120px;
+  padding: 5px;
   transition: all 0.5s;
   background-color: var(--shade-3-opaque);
   border-radius: 5px;
