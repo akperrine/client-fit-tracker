@@ -1,0 +1,23 @@
+.goal-header {
+  font-size: 50px;
+  padding: 20px;
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  border-radius: 6px;
+  margin: 30px 50px 20px 50px;
+  max-width: 800px;
+  width: 90%;
+}
+
+.goal-container {
+  background-color: var(--shade-2);
+  margin: 5px 0 200px 0;
+  border-radius: 5px;
+  border: 1px solid var(--shade-3);
+  width: 500px;
+  min-height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}

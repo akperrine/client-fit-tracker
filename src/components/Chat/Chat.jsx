@@ -13,7 +13,6 @@ const Chat = () => {
   const username = user.user;
   const messages = user.messages;
   const userId = user.id;
-  console.log("user", user);
 
   React.useEffect(() => {
     updateDb("users", userId, "messages", messages);

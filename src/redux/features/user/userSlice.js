@@ -3,7 +3,10 @@ import { createSlice } from "@reduxjs/toolkit";
 export const userSlice = createSlice({
   name: "user",
   initialState: {
-    value: null,
+    user: null,
+    workout: [],
+    messages: [],
+    goals: [],
   },
   reducers: {
     login: (state, action) => {
@@ -26,9 +29,17 @@ export const userSlice = createSlice({
         messages: [...state.value.messages, action.payload],
       };
     },
+    updateGoalComplete: (state, action) => {
+      const newGoalList = [...state.value.goals];
+      const index = action.payload;
+      newGoalList[index].complete = !newGoalList[index].complete;
+
+      state.value = { ...state.value, goals: newGoalList };
+    },
   },
 });
 
-export const { addMessages, login, logout, updateWorkout } = userSlice.actions;
+export const { addMessages, login, logout, updateGoalComplete, updateWorkout } =
+  userSlice.actions;
 
 export default userSlice.reducer;

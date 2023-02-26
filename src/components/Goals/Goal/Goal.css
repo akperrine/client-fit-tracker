@@ -1,0 +1,51 @@
+.goal-item-container {
+  font-size: 30px;
+  padding: 6px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--shade-4);
+  border-radius: 5px 5px 0 0;
+  border-bottom: 3px solid var(--shade-3);
+}
+
+.goal-item {
+  font-size: 28px;
+  font-weight: 500;
+  display: flex;
+  justify-content: center;
+  align-self: center;
+}
+
+.goal-complete-btn {
+  width: 25px;
+  height: 25px;
+  margin: 0 10px;
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--shade-3);
+  background-color: var(--logo);
+  border-radius: 50%;
+  transition: 0.7s;
+}
+
+.goal-complete-btn-complete {
+  width: 25px;
+  height: 25px;
+  margin: 0 10px;
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--shade-3);
+  background-color: var(--complete);
+  border-radius: 50%;
+  transition: 0.7s;
+}
+
+.goal-complete-btn:active {
+  transform: translateY(2px);
+}
+
+.goal-complete-btn-complete:active {
+  transform: translateY(2px);
+}
