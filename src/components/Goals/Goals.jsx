@@ -3,7 +3,10 @@ import { useDispatch, useSelector } from "react-redux";
 import Goal from "./Goal/Goal";
 import { updateDb } from "../../utils/firebase.utils";
 
-import { updateGoalComplete } from "../../redux/features/user/userSlice";
+import {
+  addGoal,
+  updateGoalComplete,
+} from "../../redux/features/user/userSlice";
 import "./Goals.css";
 
 export const Goals = () => {
@@ -17,6 +20,10 @@ export const Goals = () => {
     dispatch(updateGoalComplete(index));
   };
 
+  const handleInputSubmit = () => {
+    dispatch(addGoal(inputRef.current.value));
+  };
+
   useEffect(() => {
     updateDb("users", userId, "goals", goalList);
   });
@@ -24,10 +31,15 @@ export const Goals = () => {
   return (
     <div className="app-container">
       <h2 className="goal-header">Current Goals</h2>
+      <form onSubmit={handleInputSubmit}>
+        <input type="text" placeholder="Add a goal" ref={inputRef} />
+      </form>
       <div className="goal-container">
         <ul>
           {goalList.map((goal, index) => (
             <Goal
+              key={goal.id}
+              id={goal.id}
               index={index}
               goal={goal.goal}
               complete={goal.complete}

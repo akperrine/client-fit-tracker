@@ -17,10 +17,13 @@
 
 input {
   border: none;
+  padding: 5px;
+  border-radius: 5px;
 }
 
 input:focus {
   outline: none;
+  color: black;
 }
 
 ul {
