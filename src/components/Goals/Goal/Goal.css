@@ -31,6 +31,7 @@
 }
 
 .goal-complete-btn-complete {
+  min-width: 25px;
   width: 25px;
   height: 25px;
   margin: 0 10px;
@@ -48,4 +49,12 @@
 
 .goal-complete-btn-complete:active {
   transform: translateY(2px);
+}
+
+.goal-remove-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
 }

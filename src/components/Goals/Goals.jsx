@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Goal from "./Goal/Goal";
 import { updateDb } from "../../utils/firebase.utils";
@@ -13,20 +13,22 @@ export const Goals = () => {
   const inputRef = useRef();
   const dispatch = useDispatch();
   const user = useSelector((state) => state.user.value);
-  const userId = user.id;
   const goalList = user.goals;
+  const userId = user.id;
 
   const handleCompleteClick = (index) => {
     dispatch(updateGoalComplete(index));
   };
 
-  const handleInputSubmit = () => {
+  const handleInputSubmit = (event) => {
+    event.preventDefault();
     dispatch(addGoal(inputRef.current.value));
+    inputRef.current.value = "";
   };
 
   useEffect(() => {
     updateDb("users", userId, "goals", goalList);
-  });
+  }, [user]);
 
   return (
     <div className="app-container">
